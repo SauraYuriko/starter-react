@@ -24,16 +24,10 @@ export class Impact extends Component {
   render () {
     return (
       <IntlProvider
-        locale={this.props.impact.locale}
-        messages={this.getIntlProviderMessage(this.props.impact.locale)}
+        locale={this.props.app}
+        messages={this.getIntlProviderMessage(this.props.app)}
       >
         <div className='impact'>
-          <button onClick={() => this.props.changeLocale('ja')}>
-            日本語
-          </button>
-          <button onClick={() => this.props.changeLocale('en')}>
-            English
-          </button>
           <h2 className='impact-h2'>
             <FM id='title'/>
           </h2>
@@ -85,8 +79,7 @@ export class Impact extends Component {
 
 Impact.propTypes = {
   loadInitialView: PropTypes.func,
-  changeLocale: PropTypes.func,
-  impact: PropTypes.object
+  impact: PropTypes.object,
 }
 
 export default Impact

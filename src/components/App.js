@@ -17,12 +17,11 @@ class App extends React.Component {
     return (
       <Provider store={this.props.store}>
         <div style={{ height: '100%' }}>
-          <Router history={browserHistory} children={this.props.routes} />
+          <Router history={browserHistory} children={this.props.routes}/>
         </div>
       </Provider>
     )
   }
-
 }
 
 export default App
