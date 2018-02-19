@@ -2,7 +2,6 @@
 // Constants
 // ------------------------------------
 export const LOAD_INITIAL_VIEW = 'LOAD_INITIAL_VIEW'
-export const CHANGE_LOCALE = 'CHANGE_LOCALE'
 
 // ------------------------------------
 // Actions
@@ -14,15 +13,8 @@ export const loadInitialView = () => {
   }
 }
 
-export const changeLocale = (lang) => {
-  return {
-    type    : CHANGE_LOCALE,
-    payload: lang,
-  }
-}
-
 export const actions = {
-  loadInitialView, changeLocale
+  loadInitialView
 }
 
 // ------------------------------------
@@ -53,13 +45,12 @@ const impactData = {
 
 const ACTION_HANDLERS = {
   [LOAD_INITIAL_VIEW] : (state, action) => Object.assign({}, state, action.payload),
-  [CHANGE_LOCALE] : (state, action) => Object.assign({}, state, action.payload),
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
-export default function impactReducer (state = {locale: 'en'}, action) {
+export default function impactReducer (state = {}, action) {
   if (action.type === 'CHANGE_LOCALE') {
     return Object.assign({}, state, { locale: action.payload })
   }
