@@ -44,12 +44,13 @@ const impactData = {
 }
 
 const ACTION_HANDLERS = {
-  [LOAD_INITIAL_VIEW] : (state, action) => Object.assign({}, state, action.payload),
+  [LOAD_INITIAL_VIEW] : (state, action) => Object.assign({}, state, action.payload)
 }
 
 // ------------------------------------
 // Reducer
 // ------------------------------------
+
 export default function impactReducer (state = {}, action) {
   const handler = ACTION_HANDLERS[action.type]
   return handler ? handler(state, action) : state
