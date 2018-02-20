@@ -13,6 +13,14 @@ export class Impact extends Component {
     this.props.loadInitialView()
   }
 
+  getBrowsersLocale () {
+    var localeArray = window.navigator.languages
+    if (localeArray[0] === 'ja' || localeArray[0] === 'ja-JP') {
+      return 'ja'
+    }
+    return 'en'
+  }
+
   getIntlProviderMessage = (lang) => {
     if (lang === 'ja') {
       return jaDescription
@@ -24,16 +32,10 @@ export class Impact extends Component {
   render () {
     return (
       <IntlProvider
-        locale={this.props.impact.locale}
-        messages={this.getIntlProviderMessage(this.props.impact.locale)}
+        locale={this.getBrowsersLocale()}
+        messages={this.getIntlProviderMessage(this.getBrowsersLocale())}
       >
         <div className='impact'>
-          <button onClick={() => this.props.changeLocale('ja')}>
-            日本語
-          </button>
-          <button onClick={() => this.props.changeLocale('en')}>
-            English
-          </button>
           <h2 className='impact-h2'>
             <FM id='title'/>
           </h2>
@@ -85,7 +87,6 @@ export class Impact extends Component {
 
 Impact.propTypes = {
   loadInitialView: PropTypes.func,
-  changeLocale: PropTypes.func,
   impact: PropTypes.object
 }
 
