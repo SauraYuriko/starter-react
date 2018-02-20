@@ -15,10 +15,8 @@ export class Impact extends Component {
 
   getBrowsersLocale () {
     var localeArray = window.navigator.languages
-    for (var browsersLocale of localeArray) {
-      if (browsersLocale.match(/ja/) || browsersLocale.match(/en/)) {
-        return browsersLocale
-      }
+    if (localeArray[0] === 'ja' || localeArray[0] === 'ja-JP') {
+      return 'ja'
     }
     return 'en'
   }
