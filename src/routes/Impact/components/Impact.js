@@ -13,14 +13,6 @@ export class Impact extends Component {
     this.props.loadInitialView()
   }
 
-  getBrowsersLocale () {
-    var localeArray = window.navigator.languages
-    if (localeArray[0] === 'ja' || localeArray[0] === 'ja-JP') {
-      return 'ja'
-    }
-    return 'en'
-  }
-
   getIntlProviderMessage = (lang) => {
     if (lang === 'ja') {
       return jaDescription
@@ -32,8 +24,8 @@ export class Impact extends Component {
   render () {
     return (
       <IntlProvider
-        locale={this.getBrowsersLocale()}
-        messages={this.getIntlProviderMessage(this.getBrowsersLocale())}
+        locale={this.props.app}
+        messages={this.getIntlProviderMessage(this.props.app)}
       >
         <div className='impact'>
           <h2 className='impact-h2'>
@@ -87,7 +79,7 @@ export class Impact extends Component {
 
 Impact.propTypes = {
   loadInitialView: PropTypes.func,
-  impact: PropTypes.object
+  impact: PropTypes.object,
 }
 
 export default Impact
