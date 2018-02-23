@@ -31,9 +31,9 @@ const ACTION_HANDLERS = {
 export default function localeReducer (state = {}, action) {
   state = window.navigator.languages[0]
   if (state === 'ja' || state === 'ja-JP') {
-    state = 'ja'
+    state : 'ja'
   }
-  else state = 'en'
+  else state : 'en'
   const handler = ACTION_HANDLERS[action.type]
   return handler ? handler(state, action) : state
 }
