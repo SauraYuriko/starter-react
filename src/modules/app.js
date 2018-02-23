@@ -28,12 +28,19 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
-export default function localeReducer (state = {}, action) {
-  state = window.navigator.languages[0]
-  if (state === 'ja' || state === 'ja-JP') {
-    state = 'ja'
+const appData = {
+  browsersLocale : window.navigator.languages[0]
+}
+
+export default function localeReducer (state = appData, action) {
+  if (state.browsersLocale === 'ja' || state.browsersLocale === 'ja-JP') {
+    Object.assign({}, state, {
+      browsersLocale: 'ja'
+    })
   }
-  else state = 'en'
+  else Object.assign({}, state, {
+    browsersLocale: 'en'
+  })
   const handler = ACTION_HANDLERS[action.type]
   return handler ? handler(state, action) : state
 }

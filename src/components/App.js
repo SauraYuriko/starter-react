@@ -9,6 +9,10 @@ class App extends React.Component {
     routes: PropTypes.object.isRequired,
   }
 
+  componentDidMount () {
+    this.props.loadBrowsersLocale()
+  }
+
   shouldComponentUpdate () {
     return false
   }
@@ -22,6 +26,10 @@ class App extends React.Component {
       </Provider>
     )
   }
+}
+
+App.propTypes = {
+  loadBrowsersLocale: PropTypes.func,
 }
 
 export default App
