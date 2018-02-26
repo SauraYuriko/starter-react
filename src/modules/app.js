@@ -21,7 +21,7 @@ export const actions = {
 // Reducer
 // ------------------------------------
 export default function localeReducer (state = {}, action) {
-  let browsersLocale = window.navigator.languages[0]
+  const browsersLocale = window.navigator.languages[0]
   let intlLocale = ''
   if (browsersLocale === 'ja' || browsersLocale === 'ja-JP') {
       intlLocale = 'ja'
