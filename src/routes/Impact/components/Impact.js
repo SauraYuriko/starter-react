@@ -24,8 +24,8 @@ export class Impact extends Component {
   render () {
     return (
       <IntlProvider
-        locale={String(this.props.app.browsersLocale)}
-        messages={this.getIntlProviderMessage(String(this.props.app.browsersLocale))}
+        locale={String(this.props.app.intlLocale)}
+        messages={this.getIntlProviderMessage(String(this.props.app.intlLocale))}
       >
         <div className='impact'>
           <h2 className='impact-h2'>
