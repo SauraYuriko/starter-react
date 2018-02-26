@@ -9,6 +9,10 @@ class App extends React.Component {
     routes: PropTypes.object.isRequired,
   }
 
+  componentDidMount () {
+    this.props.loadBrowsersLocale()
+  }
+
   shouldComponentUpdate () {
     return false
   }
@@ -17,12 +21,15 @@ class App extends React.Component {
     return (
       <Provider store={this.props.store}>
         <div style={{ height: '100%' }}>
-          <Router history={browserHistory} children={this.props.routes} />
+          <Router history={browserHistory} children={this.props.routes}/>
         </div>
       </Provider>
     )
   }
+}
 
+App.propTypes = {
+  loadBrowsersLocale: PropTypes.func,
 }
 
 export default App
