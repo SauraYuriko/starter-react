@@ -20,16 +20,29 @@ export const actions = {
 // ------------------------------------
 // Reducer
 // ------------------------------------
+// export default function localeReducer (state = {}, action) {
+//   const browsersLocale = window.navigator.languages[0]
+//   if (browsersLocale === 'ja' || browsersLocale === 'ja-JP') {
+//     return Object.assign({}, state, {
+//       browsersLocale: 'ja'
+//     })
+//   }
+//   else {
+//     return Object.assign({}, state, {
+//     browsersLocale: 'en'
+//     })
+//   }
+// }
+
 export default function localeReducer (state = {}, action) {
-  const browsersLocale = window.navigator.languages[0]
+  let browsersLocale = window.navigator.languages[0]
   if (browsersLocale === 'ja' || browsersLocale === 'ja-JP') {
-    return Object.assign({}, state, {
-      browsersLocale: 'ja'
-    })
+      browsersLocale = 'ja'
   }
   else {
-    return Object.assign({}, state, {
-    browsersLocale: 'en'
-    })
+     browsersLocale = 'en'
   }
+  return Object.assign({}, state, {
+    browsersLocale
+  })
 }
